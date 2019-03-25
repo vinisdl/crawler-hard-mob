@@ -11,10 +11,17 @@ var c = new Crawler({
         if(error){
             console.log(error);
         }else{
-            var $ = res.$;
+            const $ = res.$;
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
-            console.log($("title").text());
+            
+            let itens = $("#threads").find(".title")
+
+            for(let i = 0; i < itens.length; i++)
+            {
+                console.log(itens[i].children[0].data)
+            }
+            
         }
         done();
     }
